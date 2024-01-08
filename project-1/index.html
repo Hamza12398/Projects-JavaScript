@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Prayer Time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins&family=Rubik:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+    />
+</head>
+<body>
+    <div style="height: 100vh;">
+    <!-- START CITY + DATE -->
+    <div style="margin-top: 100px">
+        <!-- CITY NAME -->
+        <div style="color: white; margin-left: 40px">
+        <h1 id="city-name">KHOURIBGA</h1>
+        <h6 style="font-size: 40px; font-weight: 200" id="date">friday 05 Jun</h6>
+        </div>
+        <!--  END CITY NAME -->
+
+        <hr style="margin: 0 30px; border-color: rgb(46, 20, 63)" />
+    </div>
+    <!--  END CITY + DATE -->
+
+    <!-- START PRAYER-TIME -->
+    <div class="container-card center" style="justify-content: space-around;">
+        <!-- START CARDS -->
+        <div class="card">
+        <div class="header">
+            <h1>El Fajr</h1>
+        </div>
+        <div class="body center" style="height: 80%; font-size: larger">
+            <h1 class="time" id="fajr-time">
+                4:30
+            </h1>
+        </div>
+        </div>
+        <!-- END CARDS -->
+        <!-- START CARDS -->
+        <div class="card">
+        <div class="header">
+            <h1>Imsak</h1>
+        </div>
+        <div class="body center" style="height: 80%; font-size: larger">
+            <h1 class="time" id="imsak-time">
+                4:30
+            </h1>
+        </div>
+        </div>
+        <!-- END CARDS -->
+        <!-- START CARDS -->
+        <div class="card">
+        <div class="header">
+            <h1>Duhr</h1>
+        </div>
+        <div class="body center" style="height: 80%; font-size: larger">
+            <h1 class="time" id="duhr-time">
+                4:30
+            </h1>
+        </div>
+        </div>
+        <!-- END CARDS -->
+        <!-- START CARDS -->
+        <div class="card">
+        <div class="header">
+            <h1>Assr</h1>
+        </div>
+        <div class="body center" style="height: 80%; font-size: larger">
+            <h1 class="time" id="assr-time">
+                4:30
+            </h1>
+        </div>
+        </div>
+        <!-- END CARDS -->
+        <!-- START CARDS -->
+        <div class="card">
+        <div class="header">
+            <h1>Magereb</h1>
+        </div>
+        <div class="body center" style="height: 80%; font-size: larger">
+            <h1 class="time" id="magereb-time">
+                4:30
+            </h1>
+        </div>
+        </div>
+        <!-- END CARDS -->
+        <!-- START CARDS -->
+        <div class="card">
+        <div class="header">
+            <h1>Aichaa</h1>
+        </div>
+        <div class="body center" style="height: 80%; font-size: larger">
+            <h1 class="time" id="aichaa-time">
+                4:30
+            </h1>
+        </div>
+        </div>
+        <!-- END CARDS -->
+    </div>
+    <hr style="margin: 0 30px; border-color: rgb(46, 20, 63)" />
+    <!-- END PRAYER-TIME -->
+
+    <!-- START CHANGE CITY -->
+    <div class="center">
+        <select name="" id="cities-select" class="select">
+            
+        </select>
+    </div>
+    <!-- END  CHANGE CITY -->
+    </div>
+</body>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="prayer.js"></script>
+</html>
