@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth</title>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+</head>
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<body>
+    <h1 class="center" style="margin-top: 50px;">
+        email : george.bluth@reqres.in <br>
+        Password : hamza
+    </h1>
+    <div style="height: 100vh;" class="center">
+        <div style="background-color: rgb(154, 154, 154); padding: 20px; width: 200px;">
+            <div>
+                <h1>Login</h1>
+                <hr>
+                <h3>Email</h3>
+                <input type="email" id="email-input">
+
+                <h3>Password</h3>
+                <input type="password" id="password-input">
+                <button id="login-btn" style="display: block; margin-top: 20px; padding: 10px;">
+                    Login Here
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
