@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document.2</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+        
+    <style>
+        body {
+            background-color: #ddd;
+        }
+        .card {
+            margin-top: 30px;
+        }
+    
+        #btn-add {
+            position: fixed;
+            font-size: 45px;
+            bottom: 5%;
+            right: 7%;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- * START MODULS LOGIN -->
+    <div class="modal fade " id="login-modal" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                <label for="recipient-name" class="col-form-label" >Username </label>
+                <input type="email" class="form-control" id="username-input" value="haaamza">
+                </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">password </label>
+                <!-- <textarea class="form-control" id="message-text"></textarea> -->
+                <input type="password" class="form-control" id="password-input" value="123456">
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" >Close</button>
+            <button id="close-btn" type="button" class="btn btn-primary" onclick="buttonClicked()" data-bs-dismiss="modal">Login</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- * END MODULS LOGIN -->
+
+    <!-- * START MODULS REGISTER -->
+    <div class="modal fade" id="register-modal" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Register a New User</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body">
+            <form>
+
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label" >Image : </label>
+                    <input type="file" class="form-control" id="register-image-input" value="h.a.m.z.a.10">
+                </div>
+
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label" >Username : </label>
+                    <input type="text" class="form-control" id="register-username-input" value="h.a.m.z.a.10">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label" >Name :</label>
+                    <input type="text" class="form-control" id="name-input" value="mizo">
+                    </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">password :</label>
+                <input type="password" class="form-control" id="register-password-input" value="123456">
+                </div>
+            </form>
+        </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" >Close</button>
+            <button id="close-btn" type="button" class="btn btn-primary" onclick="registerClicked()" data-bs-dismiss="modal">Register</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- * END MODULS REGISTER -->
+
+    <!-- * ******* START message alert ******** -->
+    <div id="succ-alert" class="fade show" style="position: fixed; z-index: 99999; width: 30%; bottom: 0; right: 0;">+</div>
+    <!-- * ******* END message alert ******** -->
+
+
+    <!-- TODO START NAVBAR CONTAINER -->
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="col-9">
+                <nav class="navbar navbar-expand-lg bg-light shadow p-3 mb-5 bg-body-tertiary rounded rounded p-3">
+                    <div class="container-fluid">
+                    <a class="navbar-brand" href="#" style="color: rgb(17, 0, 255);">Hamza</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse " id="navbarNav">
+                        <ul class="navbar-nav ">
+                        <li class="nav-item" >
+                            <a class="nav-link active" aria-current="page" href="#" style="color: black;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: black;">Profile</a>
+                        </li>
+                        </ul>
+                        <div class="d-flex justify-content-end w-100 mx-3" id="log-in-div">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#login-modal" class="btn btn-outline-success mx-3" id="btn-login">Login</button>
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#register-modal" id="btn-register">Register</button>
+                        </div>
+                        
+                        <!-- ! LOGOUT BTN -->
+                        <div class="d-flex justify-content-end w-100 mx-3" id="logout-div">
+                            <img id="user-image" src="./png-profile/hcherkao.jpg"  class="rounded-circle" style="width: 50px; height: 50px;">
+                                <b id="nav-username" style="justify-content: center; align-items: center; display: flex; padding:15px; cursor: pointer;">
+                                    @hcherkao
+                                </b>
+                            <button onclick= "logOut()" type="button" class="btn btn-outline-danger" id="btn-logout">Logout</button>
+                        </div>
+                    <!-- ! LOGOUT BTN -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- TODO END NAVBAR CONTAINER -->
+
+    <div class="container ">
+        <!-- USERS POST -->
+            <div class="d-flex justify-content-center">
+                <div class="col-9">
+                    <h1>
+                        <span id="username-span">
+                            Hamza's 
+                        </span> 
+                        Post
+                    </h1>
+            <div class="card shadow">
+                <div class="card-header">
+                <img src="./png-profile/man_4140048.png" style="width: 40px;height: 40px;">
+                <span class="fw-bold fs-4" id="test">Hamza</span>
+                </div>
+                <div class="card-body">
+                    <img class="w-100" src="./png-profile/00.jpg">
+                    <h6 style="color: #999999;">5 min ago</h6>
+                    <h5></h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus tenetur eos, in, modi necessitatibus qui perferendis corporis officiis sapiente ipsam adipisci a, dicta dolore blanditiis rerum! Dolores, reiciendis. Maxime, autem.</p>
+                    <hr>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                            <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                        </svg>
+                        <span>
+                            (5) comment
+                        </span>
+                    </div>
+                </div>
+            </div>
+                </div>        
+            </div>
+    </div>
+
+</body>
+
+<script src="./mainLogic.js"></script>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search)
+    const id = urlParams.get("postid")
+    showUi()
+
+
+        getPost()
+    function getPost(){
+        axios.get(`https://tarmeezacademy.com/api/v1/posts`)
+        .then((response) => {
+            const post = response.data.data
+            console.log(post);
+        })
+        .catch((error)=> {
+            console.log(error);
+        })
+    }
+</script>
+
+</html>
